@@ -106,7 +106,6 @@ function removeTask(e) {
 function removeTaskFromLocalStorage(taskItem) {
     let tasks;
     tasks = JSON.parse(localStorage.getItem('tasks'));
-
     for (let i = 0; i < tasks.length; i++) {
         if (taskItem.textContent == tasks[i]) {
             tasks.splice(i, 1);
