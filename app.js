@@ -2,8 +2,8 @@
 
 // Define UI Variables
 const form = document.getElementById('task-form');
-const taskList = document.getElementsByClassName('collection');
-const clearBtn = document.getElementsByClassName('clear-tasks');
+const taskList = document.querySelector('ul.collection');
+const clearBtn = document.querySelector('a.clear-tasks');
 const filter = document.getElementById('filter');
 const taskInput = document.getElementById('task');
 
@@ -106,6 +106,7 @@ function removeTask(e) {
 function removeTaskFromLocalStorage(taskItem) {
     let tasks;
     tasks = JSON.parse(localStorage.getItem('tasks'));
+
     for (let i = 0; i < tasks.length; i++) {
         if (taskItem.textContent == tasks[i]) {
             tasks.splice(i, 1);
