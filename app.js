@@ -70,7 +70,7 @@ function addTask() {
         link.innerHTML = '<i class="fa fa-remove"></i>';
         li.appendChild(link);
         // append li to ul
-        taskList.appendChild(li);
+        taskList.insertBefore(li, taskList.firstChild);
         // persist data (tasks) to local storage
         storeTaskInLocalStorage(taskInput.value);
         // clear input
@@ -78,7 +78,7 @@ function addTask() {
     }
 }
 
-
+// Store Task In Local Storage
 function storeTaskInLocalStorage(task) {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
@@ -87,7 +87,7 @@ function storeTaskInLocalStorage(task) {
         tasks = JSON.parse(localStorage.getItem('tasks'));
     }
 
-    tasks.push(task);
+    tasks.unshift(task);
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
