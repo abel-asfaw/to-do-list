@@ -95,10 +95,8 @@ function storeTaskInLocalStorage(task) {
 // Remove Task Function
 function removeTask(e) {
     if (e.target.parentElement.classList.contains('delete-item')) {
-        if (confirm('Are you sure you want delete?')) {
-            e.target.parentElement.parentElement.remove();
-            removeTaskFromLocalStorage(e.target.parentElement.parentElement);
-        }
+        e.target.parentElement.parentElement.remove();
+        removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     }
 }
 
@@ -117,10 +115,15 @@ function removeTaskFromLocalStorage(taskItem) {
 
 // Clear Tasks Function
 function clearTasks() {
-    while (taskList.firstChild) {
-        taskList.removeChild(taskList.firstChild);
+    console.log(taskList.childNodes.length);
+    if (taskList.childNodes.length != 0 && confirm('Are you sure you want to clear all to-dos?')) {
+        while (taskList.firstChild) {
+            taskList.removeChild(taskList.firstChild);
+        }
+        clearTasksFromLocalStorage();
+    } else {
+        alert('Your to-dos have already been cleared.');
     }
-    clearTasksFromLocalStorage();
 }
 
 // Clear Tasks From Local Storage Function
