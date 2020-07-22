@@ -54,7 +54,7 @@ function getTasks() {
 // Add Task Function
 function addTask() {
     if (taskInput.value === '') {
-        alert('Please add a task');
+        alert('Please add a task.');
     } else {
         // create li if input isn't empty
         const li = document.createElement('li');
@@ -124,7 +124,7 @@ function clearTasks() {
             clearTasksFromLocalStorage();
         }
     } else {
-        alert('You don\'t have any to-dos');
+        alert('You don\'t have any to-dos.');
     }
 }
 
