@@ -116,13 +116,15 @@ function removeTaskFromLocalStorage(taskItem) {
 // Clear Tasks Function
 function clearTasks() {
     console.log(taskList.childNodes.length);
-    if (taskList.childNodes.length != 0 && confirm('Are you sure you want to clear all to-dos?')) {
-        while (taskList.firstChild) {
-            taskList.removeChild(taskList.firstChild);
+    if (taskList.childNodes.length != 0) {
+        if (confirm('Are you sure you want to clear all to-dos?')) {
+            while (taskList.firstChild) {
+                taskList.removeChild(taskList.firstChild);
+            }
+            clearTasksFromLocalStorage();
         }
-        clearTasksFromLocalStorage();
     } else {
-        alert('Your to-dos have already been cleared.');
+        alert('You don\'t have any to-dos');
     }
 }
 
